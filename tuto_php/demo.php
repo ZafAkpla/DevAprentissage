@@ -1,11 +1,10 @@
 <?php
-// debut d'aprentissage des conceptes de tableau en php
+// introduction aux conditions
 
-$eleve = [
-    'nom' => 'Marc',
-    'prenom' => 'Dos',
-    'notes' => [10,15,20,9,7]
-];
-$moyenne = ($eleve['notes'][0]+$eleve['notes'][1]+$eleve['notes'][2]+$eleve['notes'][3]+$eleve['notes'][4])/5;
+$note = readline('Entrer une note : ');
 
-echo 'Bonjour ' .$eleve['prenom'] . ' ' .$eleve['nom'] .' votre moyenne est $moyenne';
+if ($note >= 10) {
+    echo 'Bravo vous avez la moyenne';
+} else {
+    echo 'Désolé vous n\'avez pas la moyenne';
+}
