@@ -1,10 +1,23 @@
 <?php
-// introduction aux conditions
+// introduction aux conditions et boucle
 
-$note = readline('Entrer une note : ');
+/* $actions = (int)readline('Entrer votre action : (1 : attaquer, 2 : défendre, 3 : passer mon tour)');
 
-if ($note >= 10) {
-    echo 'Bravo vous avez la moyenne';
-} else {
-    echo 'Désolé vous n\'avez pas la moyenne';
-}
+switch ($actions) {
+    case 1:
+        echo 'j\'attaque';
+        break;
+    case 2:
+        echo 'je me défend';
+        break;
+    case 3:
+        echo 'je ne fais rien';
+        break;
+    default:
+        echo 'command inconnu';
+        break;
+}  */
+
+
+// boucle
+
