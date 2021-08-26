@@ -49,21 +49,53 @@ foreach ($notes as $ListNote) {
 
 // function utilisateur
 
-function repondre_oui_non($messag){
+function repondre_oui_non($messag = 'voulez vous continuer ?'){
     echo "$messag \n";
-    $message = "votre reponse doit est oui ou non ";
-
-    $saisi=readline('o/n');
-    if ($saisi == 'n') {
-        return false;
-    }elseif ($saisi == 'o') {
-        return true;
-    }else{
-        return $message;
+   
+    while (true) {
+        $saisi=readline('veillez entrer (o)ui ou (n)on :');
+        if ($saisi == 'n') {
+            return false;
+        }elseif ($saisi == 'o') {
+            return true;
+        }
     }
+    
 }
 
-$resultat = repondre_oui_non('voulez vous continuer ?');
 
-var_dump($resultat);
 
+
+function demander_crenau($phrase = 'veuillez demander un crenau '){
+    echo $phrase . "\n";
+    $horaire = [];
+        while (true) {
+            $h_ouv = (int)readline("heure d'ouvertur : ");
+            if ($h_ouv >= 0 && $h_ouv <= 23) {
+                break;
+            }
+            echo "heure incorrect :_)\n";
+        }
+        while (true) {
+            $h_ferm = (int)readline("heure de fermeture : ");
+            if ($h_ferm >= 0 && $h_ferm <= 23 && $h_ferm > $h_ouv) {
+                break;
+            }
+        }
+    
+   return [$h_ouv,$h_ferm];
+}
+
+
+function demander_crenneaux($v_crenneau){
+    echo $v_crenneau . "\n";
+    $crenneau = [];
+    $continuer = true;
+    while ($continuer) {
+        $crenneau[] = demander_crenau();
+        $continuer = repondre_oui_non();
+    }
+    return $crenneau;
+}
+$crenneaux = demander_crenneaux('Entrer vos crenneaux');
+print_r($crenneaux);
